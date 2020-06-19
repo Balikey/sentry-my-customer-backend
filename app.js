@@ -15,6 +15,7 @@ const phone_verification = require('./routes/verify-phone-number')
 const example = require('./routes/example');
 const phone_call_api = require('./controllers/phone_call_api');
 require('./routes/transactions.js')(app);
+const sms_api = require('./controllers/smsapi');
 const mongoose = require('mongoose');
 app.use(cors());
 
@@ -40,6 +41,7 @@ app.set("view engine", "ejs");
 app.use(phone_verification)
 app.use(example)
 
+app.use('/api', sms_api);
 /**
  * phone call api route below
  * 
@@ -51,4 +53,3 @@ app.use('/api', phone_call_api);
 app.listen(5000, () => {
     console.log(`app running on port: http://localhost:5000`);
 });
-
