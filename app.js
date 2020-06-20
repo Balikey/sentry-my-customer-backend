@@ -22,6 +22,7 @@ const transactions = require('./routes/transactions');
 const store = require('./routes/stores.js');
 const register = require('./routes/register_route');
 const login = require('./routes/login_route');
+const emailAPI = require("./routes/sendMail");
 // const complainRouter = require("./routes/complaint");
 app.use(cors());
 mongoose.Promise = global.Promise;
@@ -42,8 +43,7 @@ app.use(express.json());
 app.use(express.static(path.join(__dirname, 'public')));
 app.use('/images', express.static(path.join(__dirname, 'images')));
 
-app.set("view engine", "ejs");
-
+app.set("view engine", "ejs"); sms_api
 app.use(documentation)
 app.use(customer)
 app.use(phone_verification)
@@ -52,7 +52,12 @@ app.use(example)
 sms_api
 
 app.use('/api', sms_api);
-
+app.use(documentation);
+app.use(customer);
+app.use(phone_verification);
+app.use(messagingAPI);
+app.use(emailAPI);
+app.use(example); develop
 app.use(transactions);
 app.use(store);
 app.use(register);
