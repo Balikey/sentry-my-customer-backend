@@ -2,7 +2,7 @@ exports.resetpasswordResponse = function(req, res) {
     console.log("welcome");  
     MongoClient.connect(url, function(err, db){  
      var dbo = db.db("Here is you db");  
-     dbo.collection('CLC_User').findOne({resetPasswordToken: req.params.token, resetPasswordExpires: { $gt: Date.now() } }, function(err, user) {  
+     dbo.collection('CLC_User').findOne({resetPasswordToken: req.params.token, resetPasswordExpires: { $gt: Date.now(jwt-decode) } }, function(err, user) {  
         if (!user) {  
         res.json({message: 'Password reset token is invalid or has expired.'});  
         }else{  
