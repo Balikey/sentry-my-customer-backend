@@ -49,12 +49,12 @@ exports.forgotpasswordResponse = function(req, res, next) {
 
 
             // console.log(Username);  
-            var smtpTransport = nodemailer.createTransport( {  
+            var smtpTransport = nodemailer.createTransport( { 
                 service: 'gmail',  
-                auth:{'055fabc1248c9b8801cdef34cd438ae0',
+                auth:'12312323',
                   user: 'Balikey Etane',  
-                  pass: 'Pepsi.1991',  
-                }  
+                  pass: 'pepsi1991',  
+                
               });  
               
             const mailOptions = {  
